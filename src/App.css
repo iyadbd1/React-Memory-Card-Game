@@ -2,4 +2,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+
+  width: 100vw;
+  height: fit-content;
+}
+.header-left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+}
+.header-right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  font-weight: bold;
+  font-size: 1.2rem;
 }

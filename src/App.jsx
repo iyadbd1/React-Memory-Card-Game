@@ -7,7 +7,7 @@ function App() {
     <Header
       title={"Books Memory Game"}
       desc={
-        "Get points by clicking on an image but don't click on any more than once!"
+        "Get points by clicking on a book but don't click on any more than once!"
       }
       score={0}
       bestScore={0}
