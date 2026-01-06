@@ -13,7 +13,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="game-container">
       <Header
         title={"Books Memory Game"}
         desc={
@@ -23,13 +23,28 @@ function App() {
         bestScore={0}
       />
 
-      <Card cardText={"1984"} imageUrl={getBook("0451524934")} />
-      <Card cardText={"The Great Gatsby"} imageUrl={getBook("0684830426")} />
-      <Card
-        cardText={"To Kill a Mockingbird"}
-        imageUrl={getBook("0060935464")}
-      />
-    </>
+      <div className="card-container">
+        <Card
+          cardText={"The Lord of the Rings"}
+          imageUrl={getBook("0618640150")}
+        />
+        <Card cardText={"1984"} imageUrl={getBook("0451524934")} />
+        <Card
+          cardText={"To Kill a Mockingbird"}
+          imageUrl={getBook("0060935464")}
+        />
+        <Card
+          cardText={"The Lord of the Rings"}
+          imageUrl={getBook("0618640150")}
+        />
+        <Card cardText={"1984"} imageUrl={getBook("0451524934")} />
+        <Card
+          cardText={"To Kill a Mockingbird"}
+          imageUrl={getBook("0060935464")}
+        />
+        <Card cardText={"1984"} imageUrl={getBook("0451524934")} />
+      </div>
+    </div>
   );
 }
 

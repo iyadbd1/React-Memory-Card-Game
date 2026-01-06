@@ -5,6 +5,8 @@ export default function Card({ cardText, imageUrl }) {
         className="card-image"
         src={imageUrl}
         alt={`image of: ${cardText}`}
+        height={286}
+        width={180}
       />
       <p className="card-text">{cardText}</p>
     </div>

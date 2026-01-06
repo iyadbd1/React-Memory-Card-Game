@@ -5,11 +5,17 @@
   line-height: 1.5;
 }
 
+.game-container {
+  background-color: hsl(37, 100%, 94%);
+  height: 100%;
+}
+
+/* Header style */
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  width: 100vw;
+  width: 100%;
   height: fit-content;
 }
 .header-left-section {
@@ -24,4 +30,45 @@
 
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+/* Card style */
+.card {
+  flex-basis: 150px;
+
+  height: auto;
+
+  /* display: flex;
+  flex-direction: column;
+  place-content: center;
+  gap: 0.5em; */
+
+  padding: 0.8em;
+
+  text-align: center;
+  font-size: 1.3rem;
+  color: #333;
+
+  background-color: hsla(0, 0%, 95%, 0.7);
+  box-shadow: 5px 5px 20px #333;
+
+  /* border: 1px solid #333; */
+  border-radius: 1em;
+}
+.card-image {
+  /* width: 100%;
+  height: auto; */
+  border-radius: 1em;
+}
+
+/* Deck style */
+.card-container {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+
+  width: 100%;
+  padding: 1em;
 }
