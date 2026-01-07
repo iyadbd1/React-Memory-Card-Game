@@ -7,9 +7,9 @@ export default function Card({ title, imageUrl }) {
         alt={`image of: ${title}`}
         height={286}
         width={180}
-        // loading="lazy"
+        loading="lazy"
       />
-      <p className="card-text">{title}</p>
+      <span className="card-title">{title}</span>
     </div>
   );
 }

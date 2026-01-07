@@ -1,7 +1,8 @@
 import Card from "./Card.jsx";
 
 export default function Deck({ cards, cardCount }) {
-  console.log(cards);
+  cardCount = cardCount === undefined && cards.length;
+
   return (
     <ul className="card-container">
       {cards.map(

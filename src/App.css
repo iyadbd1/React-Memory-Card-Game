@@ -32,18 +32,19 @@
 
 /* Card style */
 .card {
-  /* flex-basis: 200px; */
+  max-width: 200px;
   height: auto;
 
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   place-content: center;
-  gap: 0.5em; */
+  flex-wrap: wrap;
+  gap: 0.5em;
 
   padding: 0.8em;
 
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #333;
 
   background-color: hsla(0, 0%, 95%, 0.7);
