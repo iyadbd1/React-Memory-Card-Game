@@ -5,10 +5,13 @@ import Deck from "./components/Deck.jsx";
 
 function App() {
   /* App State */
-  // const [score, setScore] = useState(0);
-  // const [bestScore, setBestScore] = useState(0);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [cards, setCards] = useState([]);
+  const [clickedCardsIds, setClickedCardsIds] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const deckSize = 20;
 
   /* Fetching and saving data from Open Library API */
   useEffect(() => {
@@ -136,6 +139,35 @@ function App() {
     };
   }, []);
 
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const random = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[random]] = [arr[random], arr[i]];
+    }
+    return arr;
+  }
+
+  function handleCardClick(cardId) {
+    // shuffle cards
+    setCards(shuffle(cards));
+
+    // if card is not clicked
+    if (!clickedCardsIds.includes(cardId)) {
+      // increment score
+      setScore(score + 1);
+
+      // the card is now clicked, memorize that
+      setClickedCardsIds([...clickedCardsIds, cardId]);
+    } else {
+      // a clicked card has been clicked again, so the player loses!
+      // save best score and reset score
+      setBestScore(score);
+      setScore(0);
+      // empty the clicked cards array
+      setClickedCardsIds([]);
+    }
+  }
+
   return (
     <div className="game-container">
       <Header
@@ -143,16 +175,17 @@ function App() {
         desc={
           "Get points by clicking on a book but don't click on any more than once!"
         }
-        score={0}
-        bestScore={0}
+        score={score}
+        bestScore={bestScore}
       />
 
       {loading ? (
         <h2 style={{ textAlign: "center" }}>Loading...</h2>
       ) : (
         <Deck
-          cards={cards}
-          // cardCount={10}
+          cardList={cards}
+          onCardClick={handleCardClick}
+          deckSize={deckSize}
         />
       )}
     </div>
