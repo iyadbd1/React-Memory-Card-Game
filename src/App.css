@@ -50,10 +50,18 @@
   color: #333;
 
   background-color: hsla(0, 0%, 95%, 0.7);
-  box-shadow: 5px 5px 20px #333;
+  box-shadow: 5px 5px 15px #333;
 
   /* border: 1px solid #333; */
   border-radius: 1em;
+}
+.card:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 30px #333;
+}
+.card:active {
+  cursor: pointer;
+  box-shadow: 10px 10px 40px #333;
 }
 .card-image {
   /* width: 100%;
@@ -64,7 +72,7 @@
 /* Deck style */
 .card-container {
   display: flex;
-  gap: 1em;
+  gap: 2em;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
