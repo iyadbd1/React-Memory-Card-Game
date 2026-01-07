@@ -180,7 +180,9 @@ function App() {
       />
 
       {loading ? (
-        <h2 style={{ textAlign: "center" }}>Loading...</h2>
+        <h2 style={{ textAlign: "center", fontSize: "2rem", marginTop: "5em" }}>
+          Loading...
+        </h2>
       ) : (
         <Deck
           cardList={cards}
