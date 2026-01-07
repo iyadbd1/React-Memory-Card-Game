@@ -109,9 +109,6 @@ function App() {
 
         const data = await response.json();
         if (!ignore) {
-          // log data to console
-          console.log(data.docs);
-
           const formattedData = data.docs
             .filter((doc) => doc.ebook_access !== "no_ebook")
             .map((doc) => ({
