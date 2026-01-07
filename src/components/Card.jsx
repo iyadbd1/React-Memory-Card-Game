@@ -1,15 +1,15 @@
-export default function Card({ cardText, imageUrl }) {
+export default function Card({ title, imageUrl }) {
   return (
     <div className="card">
       <img
         className="card-image"
         src={imageUrl}
-        alt={`image of: ${cardText}`}
+        alt={`image of: ${title}`}
         height={286}
         width={180}
-        loading="lazy"
+        // loading="lazy"
       />
-      <p className="card-text">{cardText}</p>
+      <p className="card-text">{title}</p>
     </div>
   );
 }

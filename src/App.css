@@ -7,21 +7,19 @@
 
 .game-container {
   background-color: hsl(37, 100%, 94%);
-  height: 100%;
+  padding: 2em;
 }
 
 /* Header style */
 .header {
   display: flex;
   justify-content: space-between;
-
-  width: 100%;
-  height: fit-content;
+  margin-bottom: 3em;
 }
 .header-left-section {
   display: flex;
   flex-direction: column;
-  gap: 2.5em;
+  gap: 2em;
 }
 .header-right-section {
   display: flex;
@@ -34,8 +32,7 @@
 
 /* Card style */
 .card {
-  flex-basis: 150px;
-
+  /* flex-basis: 200px; */
   height: auto;
 
   /* display: flex;
@@ -50,18 +47,18 @@
   color: #333;
 
   background-color: hsla(0, 0%, 95%, 0.7);
-  box-shadow: 5px 5px 15px #333;
+  box-shadow: 5px 5px 20px #333;
 
   /* border: 1px solid #333; */
   border-radius: 1em;
 }
 .card:hover {
   cursor: pointer;
-  box-shadow: 10px 10px 30px #333;
+  box-shadow: 8px 8px 30px #333;
 }
 .card:active {
   cursor: pointer;
-  box-shadow: 10px 10px 40px #333;
+  box-shadow: 12px 12px 40px #333;
 }
 .card-image {
   /* width: 100%;
@@ -72,11 +69,15 @@
 /* Deck style */
 .card-container {
   display: flex;
-  gap: 2em;
+  gap: 1em;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
 
   width: 100%;
-  padding: 1em;
+}
+
+/* Remove bullet points */
+ul {
+  list-style: none;
 }

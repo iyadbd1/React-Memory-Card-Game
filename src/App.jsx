@@ -10,7 +10,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  /* API Call */
+  /* Fetching and saving data from Open Library API */
   useEffect(() => {
     const popularISBNs = [
       // Classics & 20th Century
@@ -102,6 +102,8 @@ function App() {
       "0525536299",
     ];
 
+    let ignore = false;
+
     async function fetchBooks() {
       try {
         setLoading(true);
@@ -113,19 +115,21 @@ function App() {
         );
 
         const data = await response.json();
-        // log data to console
-        console.log(data.docs);
+        if (!ignore) {
+          // log data to console
+          console.log(data.docs);
 
-        const formattedData = data.docs.map((doc) => ({
-          cardTitle: doc.title,
-          // Open Library uses 'cover_i' for the image ID
-          cardImage: doc.cover_i
-            ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg`
-            : "https://via.placeholder.com/150x200?text=No+Cover",
-          id: doc.key,
-        }));
+          const formattedData = data.docs.map((doc) => ({
+            title: doc.title,
+            // Open Library uses 'cover_i' for the image ID
+            cover: doc.cover_i
+              ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`
+              : "",
+            id: doc.key,
+          }));
 
-        setCards(formattedData);
+          setCards(formattedData);
+        }
       } catch (err) {
         console.error(err);
       } finally {
@@ -135,16 +139,10 @@ function App() {
 
     fetchBooks();
 
-    return () => {};
+    return () => {
+      ignore = true;
+    };
   }, []);
-
-  //     // 1984 book path
-  //   const bookISBN = "9780451524935";
-  //   const bookUrl = `https://covers.openlibrary.org/b/isbn/${bookISBN}-M.jpg`;
-
-  // function getBook(bookId) {
-  //   return `https://covers.openlibrary.org/b/isbn/${bookId}-M.jpg`;
-  // }
 
   return (
     <div className="game-container">
@@ -157,7 +155,11 @@ function App() {
         bestScore={0}
       />
 
-      {loading ? <h2>Loading...</h2> : <Deck cards={cards} />}
+      {loading ? (
+        <h2 style={{ textAlign: "center" }}>Loading...</h2>
+      ) : (
+        <Deck cards={cards} cardCount={10} />
+      )}
     </div>
   );
 }

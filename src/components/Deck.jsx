@@ -1,15 +1,18 @@
 import Card from "./Card.jsx";
 
-export default function Deck({ cards }) {
+export default function Deck({ cards, cardCount }) {
+  console.log(cards);
   return (
-    <div className="card-container">
-      <ul>
-        {cards.map((card) => {
-          <li key={card.id}>
-            <Card cardText={card.cardTitle} imageUrl={card.cardImage} />
-          </li>;
-        })}
-      </ul>
-    </div>
+    <ul className="card-container">
+      {cards.map(
+        (card, index) =>
+          card.cover !== "" &&
+          index < cardCount && (
+            <li key={card.id}>
+              <Card title={card.title} imageUrl={card.cover} />
+            </li>
+          )
+      )}
+    </ul>
   );
 }
