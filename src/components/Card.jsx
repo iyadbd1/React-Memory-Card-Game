@@ -7,6 +7,7 @@ export default function Card({ cardText, imageUrl }) {
         alt={`image of: ${cardText}`}
         height={286}
         width={180}
+        loading="lazy"
       />
       <p className="card-text">{cardText}</p>
     </div>
